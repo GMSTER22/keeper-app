@@ -6,17 +6,23 @@ import Input from "./Input"
 import notes from "./notes";
 
 function App() {
+    //have to add a new state
+
     function addNote(note) {
-        console.log(notes, "first")
+        note = { 
+            id: notes.length + 1,
+            ...note 
+        }
+
         notes.push(note);
-        console.log(notes, "second")
+        console.log(notes, "notes")
     }
 
 
     return <div>
                 <Header />
                 <Input handleNote={addNote} />
-                {notes.map(noteItem =>  (
+                {notes.map((noteItem) =>  (
                         <Note 
                             key={noteItem.id} 
                             title={noteItem.title} 

@@ -8,11 +8,8 @@ function Input(props) {
         content: ""
     });
     
-    
-    
     function handleChange(event) {
         const { name, value } = event.target;
-        console.log(name, value);
         setNote(prevNote => {
             return { 
                 ...prevNote,
@@ -29,6 +26,7 @@ function Input(props) {
                 e.preventDefault();
 
                 props.handleNote(note);
+                
                 setNote({
                     title: "",
                     content: ""
