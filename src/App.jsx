@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import Note from "./Note";
 import Footer from "./Footer";
-import Input from "./Input"
-import notes from "./notes";
+import Input from "./Input";
 
 function App() {
-    //have to add a new state
+    const [ notes, setNotes ] = useState([])
 
     function addNote(note) {
         note = { 
@@ -14,8 +13,23 @@ function App() {
             ...note 
         }
 
-        notes.push(note);
-        console.log(notes, "notes")
+        setNotes(prevNotes => {
+            return [
+                ...prevNotes,
+                note
+            ]
+        })
+    }
+
+    function deleteNote(id) {
+
+        setNotes(prevNotes => {
+            return prevNotes.filter( (note) => {
+
+                return id !== note.id;
+
+            });
+        })
     }
 
 
@@ -25,8 +39,10 @@ function App() {
                 {notes.map((noteItem) =>  (
                         <Note 
                             key={noteItem.id} 
+                            id={noteItem.id} 
                             title={noteItem.title} 
                             content={noteItem.content} 
+                            onDelete={deleteNote}
                         />
                     )
                 )}
