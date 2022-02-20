@@ -68,6 +68,8 @@ form.create-note .btn-add {
   right: .25rem;
   color: #6495ed;
   cursor: pointer;
+  background-color: transparent;
+  outline: none;
 }
 
 footer {
@@ -76,13 +78,14 @@ footer {
   text-align: center;
   bottom: 0;
   left: 0;
+  right: 0;
   width: 100%;
   height: 2.5rem;
+  padding: 1rem 0;
 }
 
 footer p {
   color: #ffffff;
-  padding: 1rem 0;
 }
 
 .note {
